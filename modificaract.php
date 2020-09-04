@@ -13,7 +13,9 @@ $cons->bindParam(':nuevafecha',$_POST['nuevafecha']);
 $cons -> execute();
 
 
-header('Location: index.php');
+
+echo "<button align='center' onclick='location.href='index.php''"">Página Principal</button>";
+//header('Location: index.php');
 
 
 

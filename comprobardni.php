@@ -10,13 +10,13 @@ $numeros = substr($dni, 0, -1);
 		echo '<h1>El DNI es valido<h1>';
 
 		echo '<form action="buscar.php" method="POST">
-			<input type="hidden" name="dni" value=$dni>
+			<input type="hidden" name="dni" value='.$dni.'>
 			<input type="submit" value="Continuar">
 			</form>';
 	}
 	else{
 		echo '<h1>El DNI no es valido<h1>';
-		echo "<button align='center' onclick=""location.href='index.php'"">Página Principal</button>";
+		//echo "<button align='center' onclick='location.href='index.php''"">Página Principal</button>";
 
 	}
 

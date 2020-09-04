@@ -4,7 +4,22 @@ include 'conecta.php';
 
 $dni = $_POST['dni'];
 
-$stmt = $pdo->query('SELECT * FROM ACTIVIDADES where /*dni de tabla potenciales = $dni y luego hace falta relacionarlo con actividades creo que mediante entityrel, preguntar a que hace referencia cada campo de esa tabla para poder hacer esta relacion*/'); 
+$stmt = $pdo->query('SELECT ACTIVIDADES.id,ACTIVIDADES.nombre,ACTIVIDADES.descripcion,ACTIVIDADES.fecha,ACTIVIDADES.dniPot 
+ FROM ACTIVIDADES 
+ INNER JOIN POTENCIALES  on POTENCIALES.DNI = ACTIVIDADES.dniPot
+ INNER JOIN ENTITY  on ENTITY.id = ACTIVIDADES.id 
+ where ENTITY.borrado = 0 AND ACTIVIDADES.dniPot ='.$dni.'');
+
+/*
+	Esta consulta selecciona los datos de la tabla actividades que no hayan sido borrados y cuyo dniPot sea el indicado en el formulario del index.php
+
+	Pendiente: Da un error de intentar hacerle un fetch a un booleano, sin embargo, he intentado la siguiente consulta directamente en un sql de la base de datos y devuelve los valores adecuados: 
+	SELECT ACTIVIDADES.id,ACTIVIDADES.nombre,ACTIVIDADES.descripcion,ACTIVIDADES.fecha,ACTIVIDADES.dniPot FROM ACTIVIDADES INNER JOIN POTENCIALES on POTENCIALES.DNI = ACTIVIDADES.dniPot INNER JOIN ENTITY on ENTITY.id = ACTIVIDADES.id where ENTITY.borrado = 0 AND ACTIVIDADES.dniPot ='62626262E';
+	
+
+*/
+
+
 ?>
 
 <html>

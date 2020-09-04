@@ -6,7 +6,8 @@ $cons = $pdo->prepare('Delete FROM ACTIVIDADES where id=:idact');
 $cons->bindParam(':idact',$_POST['idact']);
 $cons -> execute();
 
-header('Location: index.php');
+echo "<button align='center' onclick='location.href='index.php''"">Página Principal</button>";
+//header('Location: index.php');
 
 ?>
 

@@ -14,7 +14,11 @@
 
 	</form>
 
-	 <!-- <h2>Potenciales<h2> Añadir modificar y eliminar como opcional -->
+
+	<p align="center">
+		<button align="center" onclick="location.href='actividad_insert_form.html'">Insertar Actividad</button>
+	</p>
+	 
 
 
 </body>
